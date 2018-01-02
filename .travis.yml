@@ -156,7 +156,7 @@ before_install:
   - echo "$TRAVIS_BRANCH ${TRAVIS_JOB_NUMBER##*.}"
   - test $TRAVIS_BRANCH != coverity_scan -o ${TRAVIS_JOB_NUMBER##*.} = 5 || exit 0
   - test $TRAVIS_BRANCH = coverity_scan -o ${TRAVIS_JOB_NUMBER##*.} != 5 || exit 0
-  - 'if [[ "${TRAVIS_JOB_NUMBER##*.}" == "5" ]]; then curl -s "https://scan.coverity.com/scripts/travisci_build_coverity_scan.sh" | bash || true ; cat /home/travis/build/ph4r05/Whitebox-crypto-AES/cov-int/build-log.txt fi'
+  - 'if [[ "${TRAVIS_JOB_NUMBER##*.}" == "5" ]]; then curl -s "https://scan.coverity.com/scripts/travisci_build_coverity_scan.sh" | bash || true ; cat /home/travis/build/ph4r05/Whitebox-crypto-AES/cov-int/build-log.txt ; fi'
   - eval "${MATRIX_EVAL}"
   - echo $LANG
   - echo $LC_ALL
