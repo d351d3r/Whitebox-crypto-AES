@@ -159,7 +159,7 @@ before_install:
     - eval "${MATRIX_EVAL}"
 
 before_install:
-  - test $TRAVIS_BRANCH != coverity_scan -o ${TRAVIS_JOB_NUMBER##*.} = 1 || exit 0
+  - test $TRAVIS_BRANCH != coverity_scan -o ${TRAVIS_JOB_NUMBER##*.} = 5 || exit 0
   - echo $LANG
   - echo $LC_ALL
   - bash install-ntl-cached.sh
