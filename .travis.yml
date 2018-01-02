@@ -147,23 +147,25 @@ matrix:
         - branch_pattern: coverity_scan
       env:
         - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0"
-      before_install:
-        - test $TRAVIS_BRANCH != coverity_scan -o ${TRAVIS_JOB_NUMBER##*.} = 1 || exit 0
-        - echo -n | openssl s_client -connect scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
-        - bash install-ntl-cached.sh
-      script:
-        - test $TRAVIS_BRANCH != coverity_scan || exit 0
-        - bash build.sh
+#      before_install:
+#        - test $TRAVIS_BRANCH != coverity_scan -o ${TRAVIS_JOB_NUMBER##*.} = 1 || exit 0
+#        - echo -n | openssl s_client -connect scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
+#        - bash install-ntl-cached.sh
+#      script:
+#        - test $TRAVIS_BRANCH != coverity_scan || exit 0
+#        - bash build.sh
 
 before_install:
     - eval "${MATRIX_EVAL}"
 
 before_install:
+  - test $TRAVIS_BRANCH != coverity_scan -o ${TRAVIS_JOB_NUMBER##*.} = 1 || exit 0
   - echo $LANG
   - echo $LC_ALL
   - bash install-ntl-cached.sh
 
 script:
+  - test $TRAVIS_BRANCH != coverity_scan || exit 0
   - ls -las
   - ls -las $HOME/ntl
   - bash build.sh
