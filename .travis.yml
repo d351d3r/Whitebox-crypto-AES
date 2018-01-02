@@ -156,16 +156,15 @@ matrix:
 #        - bash build.sh
 
 before_install:
-    - eval "${MATRIX_EVAL}"
-
-before_install:
+  - echo "$TRAVIS_BRANCH"
+  - echo "${TRAVIS_JOB_NUMBER##*.}"
   - test $TRAVIS_BRANCH != coverity_scan -o ${TRAVIS_JOB_NUMBER##*.} = 5 || exit 0
+  - eval "${MATRIX_EVAL}"
   - echo $LANG
   - echo $LC_ALL
   - bash install-ntl-cached.sh
 
 script:
-  - test $TRAVIS_BRANCH != coverity_scan || exit 0
   - ls -las
   - ls -las $HOME/ntl
   - bash build.sh
