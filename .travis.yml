@@ -132,7 +132,7 @@ matrix:
             - boost-latest
             - george-edison55-precise-backports
           packages:
-            - g++-7
+            - g++-4.9
             - build-essential
             - autoconf
             - cmake
@@ -150,7 +150,7 @@ matrix:
         - build_command:   bash build.sh
         - branch_pattern: coverity_scan
       env:
-        - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
+        - MATRIX_EVAL="CC=gcc-4.9 && CXX=g++-4.9"
 
 before_install:
   - echo "$TRAVIS_BRANCH ${TRAVIS_JOB_NUMBER##*.}"
