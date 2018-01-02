@@ -123,7 +123,7 @@ matrix:
       env:
         - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0"
 
-    # works on Trusty - coverity
+    # works on Trusty - coverity, 5th job
     - os: linux
       addons:
         apt:
@@ -163,6 +163,7 @@ before_install:
   - bash install-ntl-cached.sh
 
 script:
+  - test $TRAVIS_BRANCH != coverity_scan || exit 0
   - ls -las
   - ls -las $HOME/ntl
   - bash build.sh
