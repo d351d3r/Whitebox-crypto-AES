@@ -4,6 +4,5 @@ bash install-ntl-cached.sh
 
 cmake .
 make clean
-make main
+exec make main
 
-echo "Cov build finished"
