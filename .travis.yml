@@ -17,7 +17,7 @@ env:
    - COVERITY_SCAN_PROJECT_NAME="ph4r05/Whitebox-crypto-AES"
    - COVERITY_SCAN_BRANCH_PATTERN="coverity_scan"
    - COVERITY_SCAN_NOTIFICATION_EMAIL="ph4r05@gmail.com"
-   - COVERITY_SCAN_BUILD_COMMAND='export CC=clang-5.0 && export CXX=clang++-5.0 && bash install-ntl-cached.sh && bash build.sh'
+   - COVERITY_SCAN_BUILD_COMMAND='bash install-ntl-cached.sh && bash build.sh'
 
 # https://docs.travis-ci.com/user/migrating-from-legacy
 addons:
