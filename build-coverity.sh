@@ -5,7 +5,7 @@ find /tmp/coverity-scan-analysis
 ls -las ~/build/ph4r05/Whitebox-crypto-AES
 find  /home/travis/build/ph4r05/Whitebox-crypto-AES/cov-int
 
-/tmp/coverity-scan-analysis/cov-configure --comptype gcc --compiler /usr/bin/gcc-4.9
+/tmp/coverity-scan-analysis/cov-analysis-linux64-2019.03/bin/cov-configure --comptype gcc --compiler /usr/bin/gcc-4.9
 
 cmake .
 make clean
